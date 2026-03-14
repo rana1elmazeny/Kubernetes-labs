@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: staging
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-pod
+  namespace: staging
+  labels:
+    app: web
+    env: staging
+spec:
+  containers:
+  - name: web-container
+    image: nginx:latest
+    ports:
+    - containerPort: 80
